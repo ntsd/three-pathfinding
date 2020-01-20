@@ -15,9 +15,8 @@ class Builder {
 
     navMesh.vertices.forEach((v) => {
       v.x = Utils.roundNumber(v.x, 2);
-      tmp = Utils.roundNumber(v.y, 2);
-      v.y = Utils.roundNumber(v.z, 2);
-      v.z = tmp;
+      v.y = Utils.roundNumber(v.y, 2);
+      v.z = Utils.roundNumber(v.z, 2);
     });
 
     zone.vertices = navMesh.vertices;
