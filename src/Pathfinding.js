@@ -57,17 +57,17 @@ class Pathfinding {
 		const candidates = [];
 		const polygons = this.zones[zoneID].groups[groupID];
 
-		polygons.forEach((p) => {
-			if (nearPosition && nearRange) {
+		if (nearPosition && nearRange) {
+			polygons.forEach((p) => {
 				if (Utils.distanceToSquared(nearPosition, p.centroid) < nearRange * nearRange) {
-					candidates.push(p.centroid);
+					candidates.push(p);
 				}
-			} else {
-				candidates.push(p.centroid);
-			}
-		});
+			});
 
-		return Utils.sample(candidates) || new THREE.Vector3();
+			return Utils.sample(candidates);
+		} else {
+			return Utils.sample(polygons);
+		}
 	}
 
 	/**
