@@ -49,7 +49,7 @@ class Pathfinding {
 	 */
 	getRandomNode (zoneID, groupID, nearPosition, nearRange) {
 
-		if (!this.zones[zoneID]) return new THREE.Vector3();
+		if (!this.zones[zoneID]) return null;
 
 		nearPosition = nearPosition || null;
 		nearRange = nearRange || 0;
